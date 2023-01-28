@@ -52,7 +52,7 @@ g1 <- ggplot(data1_orig, aes(x=mgmt_score, y=effect)) +
   # Reference line
   geom_hline(yintercept=0, color="grey60", linetype="dotted") +
   # Regression
-  geom_smooth(formula = 'y ~ x', method="lm", fill="grey90", color="black") +
+  geom_smooth(formula = 'y ~ x', method="lm", fill="grey50", color="black") +
   # Data
   geom_point() +
   # Labels
