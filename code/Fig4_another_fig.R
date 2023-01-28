@@ -17,8 +17,11 @@ plotdir <- "figures"
 # Read data
 data_orig <- readxl::read_excel("data/fig5_data.xlsx") %>%
   mutate(effect_sd=0.2,
+         effect_sd2=0.3,
          effect_lo=effect - effect_sd,
          effect_hi=effect + effect_sd,
+         effect_lo2=effect - effect_sd2,
+         effect_hi2=effect + effect_sd2,
          level=recode_factor(level,
                              "inadequate"="Inadequate / weak",
                              "adequate"="Adequate / strong"),
@@ -52,8 +55,10 @@ g <- ggplot(data_orig, aes(x=comparison, y=effect, color=level)) +
   geom_hline(yintercept=0, color="grey60", linetype="dotted") +
   # Data
   geom_errorbar(position=position_dodge(width=0.5), width=0,
-                mapping=aes(ymin=effect_lo, ymax=effect_hi)) +
-  geom_point(position=position_dodge(width=0.5)) +
+                mapping=aes(ymin=effect_lo2, ymax=effect_hi2), linewidth=0.4) +
+  geom_errorbar(position=position_dodge(width=0.5), width=0,
+                mapping=aes(ymin=effect_lo, ymax=effect_hi), linewidth=1.2) +
+  geom_point(position=position_dodge(width=0.5), pch=21, fill="white") +
   # Labels
   labs(x="Comparison", y="Effect size\n(log biomass ratio)") +
   # Legend

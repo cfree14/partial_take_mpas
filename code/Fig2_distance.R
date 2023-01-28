@@ -39,7 +39,6 @@ effects <- tibble(type=c("All", 'Near', "Far") %>% factor(., levels=c("All", "Ne
 
 # Base theme
 base_theme <- theme(axis.text=element_text(size=7),
-                    axis.text.y = element_text(angle = 90, hjust = 0.5),
                     axis.title=element_text(size=8),
                     legend.text=element_text(size=7),
                     legend.title=element_text(size=8),
